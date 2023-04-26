@@ -1,5 +1,5 @@
 # 🐶 Bark
-
+----------------------------------------------------------------------------------------------------------------------------------------
 <a href="http://www.repostatus.org/#active"><img src="http://www.repostatus.org/badges/latest/active.svg" /></a>
 [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/OnusFM.svg?style=social&label=@OnusFM)](https://twitter.com/OnusFM)
 [![](https://dcbadge.vercel.app/api/server/J2B2vsjKuE?compact=true&style=flat&)](https://discord.gg/J2B2vsjKuE)
@@ -14,12 +14,12 @@ Bark is a transformer-based text-to-audio model created by [Suno](https://suno.a
 </p>
 
 ## 🔊 Demos
-
+----------------------------------------------------------------------------------------------------------------------------------------
 [![Open in Spaces](https://img.shields.io/badge/🤗-Open%20In%20Spaces-blue.svg)](https://huggingface.co/spaces/suno/bark)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1eJfA2XUa-mXwdMy7DoYKVYHI1iTd9Vkt?usp=sharing)
 
 ## 🤖 Usage
-
+----------------------------------------------------------------------------------------------------------------------------------------
 ```python
 from bark import SAMPLE_RATE, generate_audio
 from IPython.display import Audio
@@ -44,7 +44,7 @@ write_wav("/path/to/audio.wav", SAMPLE_RATE, audio_array)
 ```
 
 ### 🌎 Foreign Language
-
+----------------------------------------------------------------------------------------------------------------------------------------
 Bark supports various languages out-of-the-box and automatically determines language from input text. When prompted with code-switched text, Bark will attempt to employ the native accent for the respective languages. English quality is best for the time being, and we expect other languages to further improve with scaling. 
 
 ```python
@@ -58,7 +58,7 @@ audio_array = generate_audio(text_prompt)
 [miguel.webm](https://user-images.githubusercontent.com/5068315/230684752-10baadfe-1e7c-46a2-8323-43282aef2c8c.webm)
 
 ### 🎶 Music
-
+----------------------------------------------------------------------------------------------------------------------------------------
 Bark can generate all types of audio, and, in principle, doesn't see a difference between speech and music. Sometimes Bark chooses to generate text as music, but you can help it out by adding music notes around your lyrics.
 
 ```python
@@ -71,7 +71,7 @@ audio_array = generate_audio(text_prompt)
 [lion.webm](https://user-images.githubusercontent.com/5068315/230684766-97f5ea23-ad99-473c-924b-66b6fab24289.webm)
 
 ### 🎤 Voice Presets and Voice/Audio Cloning
-
+----------------------------------------------------------------------------------------------------------------------------------------
 Bark has the capability to fully clone voices - including tone, pitch, emotion and prosody. The model also attempts to preserve music, ambient noise, etc. from input audio. However, to mitigate misuse of this technology, we limit the audio history prompts to a limited set of Suno-provided, fully synthetic options to choose from for each language. Specify following the pattern: `{lang_code}_speaker_{0-9}`.
 
 ```python
@@ -88,7 +88,7 @@ audio_array = generate_audio(text_prompt, history_prompt="en_speaker_1")
 *Note: since Bark recognizes languages automatically from input text, it is possible to use for example a german history prompt with english text. This usually leads to english audio with a german accent.*
 
 ### 👥 Speaker Prompts
-
+----------------------------------------------------------------------------------------------------------------------------------------
 You can provide certain speaker prompts such as NARRATOR, MAN, WOMAN, etc. Please note that these are not always respected, especially if a conflicting audio history prompt is given.
 
 ```python
@@ -103,7 +103,7 @@ audio_array = generate_audio(text_prompt)
 
 
 ## 💻 Installation
-
+----------------------------------------------------------------------------------------------------------------------------------------
 ```
 pip install git+https://github.com/suno-ai/bark.git
 ```
@@ -116,7 +116,7 @@ cd bark && pip install .
 ```
 
 ## 🛠️ Hardware and Inference Speed
-
+----------------------------------------------------------------------------------------------------------------------------------------
 Bark has been tested and works on both CPU and GPU (`pytorch 2.0+`, CUDA 11.7 and CUDA 12.0).
 Running Bark requires running >100M parameter transformer models.
 On modern GPUs and PyTorch nightly, Bark can generate audio in roughly realtime. On older GPUs, default colab, or CPU, inference time might be 10-100x slower. 
@@ -124,7 +124,7 @@ On modern GPUs and PyTorch nightly, Bark can generate audio in roughly realtime.
 If you don't have new hardware available or if you want to play with bigger versions of our models, you can also sign up for early access to our model playground [here](https://3os84zs17th.typeform.com/suno-studio).
 
 ## ⚙️ Details
-
+----------------------------------------------------------------------------------------------------------------------------------------
 Similar to [Vall-E](https://arxiv.org/abs/2301.02111) and some other amazing work in the field, Bark uses GPT-style 
 models to generate audio from scratch. Different from Vall-E, the initial text prompt is embedded into high-level semantic tokens without the use of phonemes. It can therefore generalize to arbitrary instructions beyond speech that occur in the training data, such as music lyrics, sound effects or other non-speech sounds. A subsequent second model is used to convert the generated semantic tokens into audio codec tokens to generate the full waveform. To enable the community to use Bark via public code we used the fantastic 
 [EnCodec codec](https://github.com/facebookresearch/encodec) from Facebook to act as an audio representation.
@@ -164,31 +164,31 @@ Below is a list of some known non-speech sounds, but we are finding more every d
 | Telugu | Coming soon! |
 
 ## 🙏 Appreciation
-
+----------------------------------------------------------------------------------------------------------------------------------------
 - [nanoGPT](https://github.com/karpathy/nanoGPT) for a dead-simple and blazing fast implementation of GPT-style models
 - [EnCodec](https://github.com/facebookresearch/encodec) for a state-of-the-art implementation of a fantastic audio codec
 - [AudioLM](https://github.com/lucidrains/audiolm-pytorch) for very related training and inference code
 - [Vall-E](https://arxiv.org/abs/2301.02111), [AudioLM](https://arxiv.org/abs/2209.03143) and many other ground-breaking papers that enabled the development of Bark
 
 ## © License
-
+----------------------------------------------------------------------------------------------------------------------------------------
 Bark is licensed under a non-commercial license: CC-BY 4.0 NC. The Suno models themselves may be used commercially. However, this version of Bark uses `EnCodec` as a neural codec backend, which is licensed under a [non-commercial license](https://github.com/facebookresearch/encodec/blob/main/LICENSE).
 
 Please contact us at `bark@suno.ai` if you need access to a larger version of the model and/or a version of the model you can use commercially.  
 
 ## 📱 Community
-
+----------------------------------------------------------------------------------------------------------------------------------------
 - [Twitter](https://twitter.com/OnusFM)
 - [Discord](https://discord.gg/J2B2vsjKuE)
 
 ## 🎧 Suno Studio (Early Access)
-
+----------------------------------------------------------------------------------------------------------------------------------------
 We’re developing a playground for our models, including Bark. 
 
 If you are interested, you can sign up for early access [here](https://3os84zs17th.typeform.com/suno-studio).
 
 ## FAQ
-
+----------------------------------------------------------------------------------------------------------------------------------------
 #### How do I specify where models are downloaded and cached?
 
 Use the `XDG_CACHE_HOME` env variable to override where models are downloaded and cached (otherwise defaults to a subdirectory of `~/.cache`).

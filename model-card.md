@@ -1,11 +1,11 @@
 # Model Card: Bark
-
+----------------------------------------------------------------------------------------------------------------------------------------
 This is the official codebase for running the text to audio model, from Suno.ai.
 
 The following is additional information about the models released here. 
 
 ## Model Details
-
+----------------------------------------------------------------------------------------------------------------------------------------
 Bark is a series of three transformer models that turn text into audio.
 ### Text to semantic tokens
  - Input: text, tokenized with [BERT tokenizer from Hugging Face](https://huggingface.co/docs/transformers/model_doc/bert#transformers.BertTokenizer)
